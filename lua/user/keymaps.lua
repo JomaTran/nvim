@@ -36,3 +36,5 @@ keymap("v", ">", ">gv", opts)
 
 -- Custom
 keymap("n", "<esc><esc>", "<cmd>nohlsearch<cr>", opts)
+keymap("n", "sv", "<cmd>vsplit<CR>",opts)
+keymap("n", "ss", "<cmd>split<CR>",opts)

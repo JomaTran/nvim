@@ -57,7 +57,6 @@ return packer.startup(function(use)
   }
   use "folke/which-key.nvim"
   use "windwp/nvim-autopairs"
-  use {"nvim-treesitter/nvim-treesitter", run={":TSUpdate"}}
   use "p00f/nvim-ts-rainbow"
   use "numToStr/Comment.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -69,23 +68,53 @@ return packer.startup(function(use)
   requires = { "kyazdani42/nvim-web-devicons", opt = true }
   }
   -- Colorschemes
-  use "folke/tokyonight.nvim"
   use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
-  --lsp
-  use "neovim/nvim-lspconfig"
+
+ use {
+    "hrsh7th/nvim-cmp",
+  }
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-vsnip"
-  use "hrsh7th/vim-vsnip"
+  use "hrsh7th/cmp-nvim-lua"
+  use {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+        run_on_every_keystroke = true,
+        snippet_placeholder = ".."
+      }
+    end,
+
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  }
+
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+  use "ray-x/lsp_signature.nvim"
+  use "tami5/lspsaga.nvim"
   use "onsails/lspkind.nvim"
-  use { "tami5/lspsaga.nvim", branch = "nvim6.0"}
-  use "tpope/vim-surround"
-  use "jose-elias-alvarez/null-ls.nvim"
   use "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim"
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter"
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

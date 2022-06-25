@@ -87,6 +87,7 @@ local mappings = {
   ["w"] = {"<cmd>w<CR>","Save"},
   ["q"] = {"<cmd>q!<CR>", "Quit"},
   ["d"] = {"<cmd>ToggleDiag<CR>","Diagnostic toggle"},
+  ["r"] = {"<cmd>NvimTreeRefresh<cr>","Refresh Explorer"},
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -111,8 +112,8 @@ local mappings = {
     name = "LSP",
     i = { ":LspInfo<cr>", "Connected Language Servers" },
     k = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature Help" },
-    -- K = { "<cmd>Lspsaga hover_doc<cr>", "Hover Commands" },
-    K = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover Commands"},
+    K = { "<cmd>Lspsaga hover_doc<cr>", "Hover Commands" },
+    -- K = {"<cmd>lua vim.lsp.buf.hover()<CR>", "Hover Commands"},
     w = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', "Add Workspace Folder" },
     W = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', "Remove Workspace Folder" },
     l = {
@@ -144,7 +145,7 @@ local vopts = {
 local vmappings = {
   ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
   ["f"] = {'<cmd>lua vim.lsp.buf.formatting_sync()<CR>',"Format code"},
-  ["a"] ={ '<cmd>lua vim.lsp.buf.range_code_action()<CR>', "Code Action" }
+  ["a"] ={ '<cmd>Lspsaga code_action<CR>', "Code Action" }
 
 }
 which_key.setup(setup)

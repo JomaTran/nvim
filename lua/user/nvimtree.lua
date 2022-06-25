@@ -31,7 +31,7 @@ require'nvim-tree'.setup {
   },
 
   view = {
-    width = 30,
+    width = 50,
     height = 30,
     side = 'left',
     mappings = {
