@@ -24,8 +24,8 @@ lspsaga.setup {
     vsplit = "s",
     split = "i",
     quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
+    scroll_down = "<C-j>",
+    scroll_up = "<C-k>",
   },
   code_action_keys = {
     quit = "q",

@@ -24,10 +24,7 @@ vim.cmd [[
 ]]
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local  packer = require ( "packer")
 
 -- Have packer use a popup window
 packer.init {
@@ -114,6 +111,8 @@ return packer.startup(function(use)
   use {
     "nvim-treesitter/nvim-treesitter"
   }
+  -- Github
+  use "f-person/git-blame.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

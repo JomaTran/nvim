@@ -1,7 +1,4 @@
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-  return
-end
+local  which_key = require ("which-key")
 
 local setup = {
   plugins = {
@@ -88,6 +85,7 @@ local mappings = {
   ["q"] = {"<cmd>q!<CR>", "Quit"},
   ["d"] = {"<cmd>ToggleDiag<CR>","Diagnostic toggle"},
   ["r"] = {"<cmd>NvimTreeRefresh<cr>","Refresh Explorer"},
+  ["g"] = {"<cmd>GitBlameToggle<CR>","Blame"},
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
